@@ -21,8 +21,8 @@ script:
   if [ "$TRAVIS_BRANCH" == "master" ]; then
     echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     TAG=$(grep "FROM " Dockerfile | sed 's/.*://')
-    docker tag hypriot/rpi-alpine:build hypriot/rpi-alpine:$TAG
-    docker tag hypriot/rpi-alpine:build hypriot/rpi-alpine:latest
-    docker push hypriot/rpi-alpine:$TAG
-    docker push hypriot/rpi-alpine:latest
+    docker tag dakl/arm32-python-alpine-qemu:build dakl/arm32-python-alpine-qemu:$TAG
+    docker tag dakl/arm32-python-alpine-qemu:build dakl/arm32-python-alpine-qemu:latest
+    docker push dakl/arm32-python-alpine-qemu:$TAG
+    docker push dakl/arm32-python-alpine-qemu:latest
   fi
